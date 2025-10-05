@@ -82,7 +82,7 @@ const Footer = () => {
         
         <div className="social-icons">
           <a 
-            href="https://instagram.com/cafecanvas" 
+            href="https://www.instagram.com/cafe._canvas/" 
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -91,7 +91,7 @@ const Footer = () => {
             <Instagram size={20} />
           </a>
           <a 
-            href="https://linkedin.com/company/cafecanvas" 
+            href="https://www.linkedin.com/in/cafecanvas0/" 
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
