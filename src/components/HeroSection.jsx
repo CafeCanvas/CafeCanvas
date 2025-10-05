@@ -115,19 +115,7 @@ const HeroSection = () => {
 
       <div className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
         {/* Announcement Badge */}
-        <div className={`hero-announcement ${isVisible ? 'slide-in-down' : ''}`} style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          background: 'rgba(255, 255, 255, 0.9)',
-          border: '2px solid var(--orange-accent)',
-          borderRadius: '3rem',
-          padding: '0.75rem 1.5rem',
-          marginBottom: '2rem',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 8px 32px rgba(255, 127, 80, 0.2)',
-          animation: isVisible ? 'bounce-in 1s ease-out' : ''
-        }}>
+        <div className={`hero-announcement ${isVisible ? 'slide-in-down' : ''}`}>
           <Sparkles size={16} style={{ color: 'var(--orange-accent)' }} />
           <span className="body-small" style={{ fontWeight: '600', color: 'var(--coffee-dark)' }}>
             🚀 Ready to Transform Your Restaurant Digitally
@@ -194,29 +182,10 @@ const HeroSection = () => {
         
         {/* Creative CTA Section */}
         <div className={`${isVisible ? 'fade-in-up delay-3' : ''}`} style={{ marginBottom: '4rem' }}>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="hero-cta-container">
             <button 
               className="btn-primary creative-cta-primary"
               onClick={scrollToContact}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.75rem',
-                padding: '1.2rem 2.5rem',
-                fontSize: '1.1rem',
-                fontWeight: '600',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.4s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 15px 40px rgba(255, 127, 80, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 8px 25px rgba(255, 127, 80, 0.3)';
-              }}
             >
               <span>Get Started Today</span>
               <ArrowRight size={20} style={{ transition: 'transform 0.3s ease' }} />
@@ -225,23 +194,6 @@ const HeroSection = () => {
             <button 
               className="btn-secondary creative-cta-secondary"
               onClick={scrollToServices}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.75rem',
-                padding: '1.2rem 2rem',
-                fontSize: '1rem',
-                fontWeight: '500',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.background = 'rgba(255, 255, 255, 0.9)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.background = 'transparent';
-              }}
             >
               <Smartphone size={18} />
               <span>View Our Work</span>
@@ -251,19 +203,7 @@ const HeroSection = () => {
 
         {/* Statistics Section */}
         <div className={`${isVisible ? 'fade-in-up delay-4' : ''}`}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem',
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '2rem',
-            background: 'rgba(255, 255, 255, 0.8)',
-            borderRadius: '2rem',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
-          }}>
+          <div className="hero-stats-grid">
             {stats.map((stat, index) => (
               <div 
                 key={index} 

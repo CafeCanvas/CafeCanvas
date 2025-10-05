@@ -73,7 +73,7 @@ const ContactSection = () => {
         </p>
       </div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem', alignItems: 'start' }}>
+      <div className="contact-grid">
         {/* Contact Form */}
         <div className="fade-in-up delay-1">
           <form className="contact-form" onSubmit={handleSubmit}>

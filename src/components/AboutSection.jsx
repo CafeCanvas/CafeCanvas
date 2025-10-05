@@ -11,7 +11,7 @@ const AboutSection = () => {
           </p>
         </div>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+        <div className="about-grid">
           <div className="fade-in-up delay-1">
             <h3 className="heading-2 mb-4 text-coffee">Our Mission</h3>
             <p className="body-medium mb-4">
@@ -67,7 +67,7 @@ const AboutSection = () => {
             boxShadow: '0 4px 20px rgba(139, 69, 19, 0.1)'
           }}>
             <h4 className="heading-3 mb-3 text-coffee">Why Choose CaféCanvas?</h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
+            <div className="features-grid">
               <div>
                 <div className="text-orange" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🚀</div>
                 <p className="body-small"><strong>Fast Setup</strong><br/>Launch in days, not months</p>

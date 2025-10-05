@@ -141,11 +141,7 @@ const InteractiveStats = () => {
 
         {/* Stats Grid */}
         <div className={`${isVisible ? 'fade-in-up delay-2' : ''}`} style={{ marginBottom: '5rem' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem'
-          }}>
+          <div className="stats-grid">
             {stats.map((stat, index) => (
               <div
                 key={index}

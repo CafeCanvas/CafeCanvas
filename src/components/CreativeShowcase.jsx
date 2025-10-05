@@ -123,12 +123,7 @@ const CreativeShowcase = () => {
             </div>
 
             {/* Transformation Steps */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '2rem',
-              alignItems: 'center'
-            }}>
+            <div className="transformation-steps-grid">
               {transformationSteps.map((step, index) => (
                 <div
                   key={index}
@@ -194,11 +189,7 @@ const CreativeShowcase = () => {
         {/* Feature Cards */}
         <div className="fade-in-up delay-3">
           <h3 className="heading-2 text-center mb-4">Why We're Different</h3>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
-          }}>
+          <div className="features-showcase-grid">
             {features.map((feature, index) => (
               <div
                 key={index}
