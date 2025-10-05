@@ -26,6 +26,7 @@ export default defineConfig({
       },
     },
   },
+  publicDir: 'public',
   esbuild: {
     loader: 'jsx',
     include: /src\/.*\.[jt]sx?$/,
