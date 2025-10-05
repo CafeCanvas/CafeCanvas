@@ -151,7 +151,7 @@ const ContactSection = () => {
                 onChange={handleInputChange}
                 className="form-input"
                 required
-                placeholder="+1 (555) 123-4567"
+                placeholder="+91 87918 04428"
               />
             </div>
             
@@ -213,7 +213,14 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="body-small text-muted">Phone</p>
-                  <p className="body-medium">+1 (555) 123-4567</p>
+                  <p className="body-medium">
+                    <span style={{ color: '#8B4513', fontWeight: '500' }}>Rachit:</span> 
+                    <a href="tel:+918791804428" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '0.5rem' }}>+91 87918 04428</a>
+                  </p>
+                  <p className="body-medium">
+                    <span style={{ color: '#8B4513', fontWeight: '500' }}>Arman:</span> 
+                    <a href="tel:+919548784462" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '0.5rem' }}>+91 9548784462</a>
+                  </p>
                 </div>
               </div>
               
@@ -232,7 +239,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="body-small text-muted">Email</p>
-                  <p className="body-medium">hello@cafecanvas.com</p>
+                  <p className="body-medium">cafe.canvas0@gmail.com</p>
                 </div>
               </div>
               
@@ -251,7 +258,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="body-small text-muted">Address</p>
-                  <p className="body-medium">123 Digital Street, Tech City, TC 12345</p>
+                  <p className="body-medium">Mathura 281001</p>
                 </div>
               </div>
             </div>
