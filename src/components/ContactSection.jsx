@@ -24,22 +24,38 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
     try {
-      // TODO: Replace with actual API call
-      console.log('Form submission:', formData);
+      const formDataToSend = new FormData();
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'ea367075-b543-44ec-85ba-201932942b62';
+      formDataToSend.append('access_key', accessKey);
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('business_name', formData.businessName);
+      formDataToSend.append('requirements', formData.requirements);
+      formDataToSend.append('subject', 'New Contact Form Submission from CafeCanvas');
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        businessName: '',
-        requirements: ''
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend
       });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          businessName: '',
+          requirements: ''
+        });
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -61,6 +77,14 @@ const ContactSection = () => {
         {/* Contact Form */}
         <div className="fade-in-up delay-1">
           <form className="contact-form" onSubmit={handleSubmit}>
+            {/* Web3Forms hidden fields */}
+            <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'ea367075-b543-44ec-85ba-201932942b62'} />
+            <input type="hidden" name="subject" value="New Contact Form Submission from CafeCanvas" />
+            <input type="hidden" name="from_name" value="CafeCanvas Contact Form" />
+            
+            {/* Honeypot Spam Protection */}
+            <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+            
             <h3 className="heading-3 mb-4 text-coffee">Send us a message</h3>
             
             {submitStatus === 'success' && (
