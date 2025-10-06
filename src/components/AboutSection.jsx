@@ -1,4 +1,5 @@
 import React from 'react';
+import CloudinaryVideo from './CloudinaryVideo';
 
 const AboutSection = () => {
   return (
@@ -32,26 +33,10 @@ const AboutSection = () => {
           
           <div className="fade-in-up delay-2">
             <div className="service-card" style={{ textAlign: 'center', padding: '2.5rem' }}>
-              <div style={{ 
-                width: '100%', 
-                height: '300px', 
-                background: 'linear-gradient(135deg, var(--cream) 0%, var(--bg-page) 100%)',
-                borderRadius: '0.75rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '1.5rem',
-                border: '2px solid var(--border-light)'
-              }}>
-                <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📱</div>
-                  <p className="body-medium">QR Ordering Website Mockup</p>
-                  <p className="body-small">Modern, responsive design</p>
-                </div>
-              </div>
-              <h4 className="heading-3 mb-2">Sample QR Ordering System</h4>
+              <CloudinaryVideo />
+              <h4 className="heading-3 mb-2">QR Ordering System in Action</h4>
               <p className="body-small">
-                See how we transform traditional menus into interactive digital experiences
+                Watch how customers seamlessly order food using our QR code system
               </p>
             </div>
           </div>

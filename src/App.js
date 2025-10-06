@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import CreativeShowcase from "./components/CreativeShowcase";
@@ -22,6 +23,7 @@ function App() {
       <AboutSection />
       <ContactSection />
       <Footer />
+      <Analytics />
     </div>
   );
 }

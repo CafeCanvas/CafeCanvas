@@ -1112,3 +1112,37 @@ body {
 .mobile-nav-links li:nth-child(3) .mobile-nav-link { animation-delay: 0.3s; }
 .mobile-nav-links li:nth-child(4) .mobile-nav-link { animation-delay: 0.4s; }
 .mobile-nav-links li:nth-child(5) .mobile-nav-link { animation-delay: 0.5s; }
+
+/* Cloudinary Video Player Styles */
+.cld-video-player {
+  background: transparent !important;
+}
+
+.cld-video-player .vjs-control-bar,
+.cld-video-player .vjs-big-play-button,
+.cld-video-player .vjs-loading-spinner,
+.cld-video-player .vjs-overlay,
+.cld-video-player .vjs-poster,
+.cld-video-player .vjs-dock,
+.cld-video-player .vjs-menu-button,
+.cld-video-player .cld-video-player-skin .vjs-control-bar {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.cld-video-player .video-js {
+  background: transparent !important;
+}
+
+.cld-video-player:hover .vjs-control-bar {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Ensure video fills container properly */
+.cld-video-player video {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
