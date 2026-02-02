@@ -1,57 +1,55 @@
-/* CaféCanvas Design System - Coffee Inspired */
+/* Business Solutions Design System */
 
 :root {
-  /* Coffee-Inspired Backgrounds */
-  --bg-page: #FFF9F2;                    /* Warm cream background */
-  --bg-card: #FFFFFF;                    /* Card backgrounds */
-  --bg-section: rgba(248, 241, 228, 0.6); /* Subtle section backgrounds */
-  --bg-overlay: rgba(255, 255, 255, 0.95); /* Header overlay with blur */
+  /* Modern Business Backgrounds */
+  --bg-page: #F8FAFC;                    /* Slate 50 */
+  --bg-card: #FFFFFF;                    /* White */
+  --bg-section: #F1F5F9;                 /* Slate 100 */
+  --bg-overlay: rgba(255, 255, 255, 0.95);
   
-  /* Coffee-Inspired Colors */
-  --coffee-dark: #3C2415;               /* Dark coffee brown */
-  --coffee-medium: #8B4513;             /* Medium coffee brown */
-  --coffee-light: #D2691E;              /* Light coffee brown */
-  --cream: #F5F5DC;                     /* Cream color */
-  --beige: #F0E68C;                     /* Beige accent */
-  --orange-accent: #FF7F50;             /* Orange accent color */
+  /* Business Palette */
+  --coffee-dark: #0F172A;               /* Slate 900 (Primary Dark) */
+  --coffee-medium: #334155;             /* Slate 700 (Primary Medium) */
+  --coffee-light: #64748B;              /* Slate 500 (Primary Light) */
+  --cream: #FFFFFF;                     /* White */
+  --beige: #E2E8F0;                     /* Slate 200 */
+  --orange-accent: #0EA5E9;             /* Sky 500 (Accent Blue) */
   
   /* Text Colors */
-  --text-primary: #232323;               /* Main headings and content */
-  --text-secondary: #3C2415;             /* Coffee brown text */
-  --text-muted: #8B4513;                /* Muted coffee text */
+  --text-primary: #0F172A;               /* Slate 900 */
+  --text-secondary: #334155;             /* Slate 700 */
+  --text-muted: #64748B;                /* Slate 500 */
   
   /* Borders */
-  --border-primary: #D2691E;             /* Coffee light borders */
-  --border-input: #8B4513;               /* Form input borders */
-  --border-input-focus: #3C2415;         /* Focused input borders */
-  --border-light: rgba(139, 69, 19, 0.3); /* Subtle dividers */
+  --border-primary: #CBD5E1;             /* Slate 300 */
+  --border-input: #E2E8F0;               /* Slate 200 */
+  --border-input-focus: #0F172A;         /* Slate 900 */
+  --border-light: rgba(148, 163, 184, 0.2);
   
-  /* Coffee Gradients */
+  /* Business Gradients */
   --gradient-hero: linear-gradient(135deg,
-    rgba(255, 127, 80, 0.1) 0%,    /* Light orange */
-    rgba(245, 245, 220, 0.8) 25%,  /* Cream */
-    rgba(255, 249, 242, 0.9) 50%,  /* Main background */
-    rgba(245, 245, 220, 0.8) 75%,  /* Cream */
-    rgba(255, 127, 80, 0.1) 100%   /* Light orange */
+    rgba(241, 245, 249, 1) 0%,     /* Slate 100 */
+    rgba(255, 255, 255, 1) 50%,    /* White */
+    rgba(224, 242, 254, 0.5) 100%  /* Light Sky */
   );
   
   --gradient-section: linear-gradient(180deg,
-    rgba(248, 241, 228, 0.4) 0%,
-    rgba(255, 249, 242, 1) 100%
+    #F8FAFC 0%,
+    #FFFFFF 100%
   );
   
   /* Glass Effects */
-  --glass-bg: rgba(255, 255, 255, 0.2);
-  --glass-border: rgba(139, 69, 19, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(148, 163, 184, 0.2);
 }
 
 /* Typography */
 .font-heading {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .font-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .font-mono {

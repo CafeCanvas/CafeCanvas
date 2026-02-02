@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Coffee, Smartphone, Users, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowRight, Smartphone, Users, TrendingUp, Sparkles, Rocket, Building2, Stethoscope, ShoppingBag, GraduationCap, Briefcase, Utensils } from 'lucide-react';
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     const handleMouseMove = (e) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 100,
@@ -31,8 +31,8 @@ const HeroSection = () => {
     }
   };
 
-  const scrollToServices = () => {
-    const element = document.getElementById('services');
+  const scrollToIndustries = () => {
+    const element = document.getElementById('industries');
     if (element) {
       const offset = 80;
       const elementPosition = element.offsetTop - offset;
@@ -44,48 +44,44 @@ const HeroSection = () => {
   };
 
   const stats = [
-    { icon: <Users size={24} />, number: "24/7", label: "Dedicated Support" },
-    { icon: <Coffee size={24} />, number: "100%", label: "Custom Solutions" },
-    { icon: <TrendingUp size={24} />, number: "Ready", label: "To Launch" }
+    { icon: <Users size={24} />, number: "50+", label: "Clients Served" },
+    { icon: <Building2 size={24} />, number: "8+", label: "Industries" },
+    { icon: <TrendingUp size={24} />, number: "100%", label: "Client Satisfaction" }
   ];
 
   return (
     <section id="home" className="hero-section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Animated Background Elements */}
       <div className="hero-background-elements">
-        {/* Floating Coffee Beans */}
-        <div className="floating-element coffee-bean-1" style={{
+        <div className="floating-element shape-1" style={{
           position: 'absolute',
           top: '10%',
           left: '5%',
-          fontSize: '2rem',
           opacity: 0.1,
           animation: 'float 6s ease-in-out infinite',
           transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
         }}>
-          ☕
+          <Rocket size={48} />
         </div>
-        <div className="floating-element coffee-bean-2" style={{
+        <div className="floating-element shape-2" style={{
           position: 'absolute',
           top: '70%',
           right: '10%',
-          fontSize: '1.5rem',
           opacity: 0.15,
           animation: 'float 8s ease-in-out infinite reverse',
           transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * 0.03}px)`
         }}>
-          ☕
+          <Stethoscope size={32} />
         </div>
-        <div className="floating-element coffee-bean-3" style={{
+        <div className="floating-element shape-3" style={{
           position: 'absolute',
           top: '30%',
           right: '5%',
-          fontSize: '2.5rem',
           opacity: 0.08,
           animation: 'float 7s ease-in-out infinite',
           transform: `translate(${mousePosition.x * 0.025}px, ${mousePosition.y * 0.025}px)`
         }}>
-          📱
+          <ShoppingBag size={64} />
         </div>
 
         {/* Gradient Orbs */}
@@ -96,7 +92,7 @@ const HeroSection = () => {
           width: '200px',
           height: '200px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(255, 127, 80, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%)',
           animation: 'pulse-slow 4s ease-in-out infinite',
           transform: `translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`
         }} />
@@ -107,7 +103,7 @@ const HeroSection = () => {
           width: '150px',
           height: '150px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(139, 69, 19, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
           animation: 'pulse-slow 5s ease-in-out infinite reverse',
           transform: `translate(${mousePosition.x * 0.04}px, ${mousePosition.y * 0.04}px)`
         }} />
@@ -118,18 +114,18 @@ const HeroSection = () => {
         <div className={`hero-announcement ${isVisible ? 'slide-in-down' : ''}`}>
           <Sparkles size={16} style={{ color: 'var(--orange-accent)' }} />
           <span className="body-small" style={{ fontWeight: '600', color: 'var(--coffee-dark)' }}>
-            🚀 Ready to Transform Your Restaurant Digitally
+            🚀 Digital Transformation for Every Industry
           </span>
         </div>
 
-        {/* Main Heading with Creative Typography */}
+        {/* Main Heading */}
         <div className={`${isVisible ? 'fade-in-up' : ''}`}>
-          <h1 className="heading-hero mb-4" style={{ 
+          <h1 className="heading-hero mb-4" style={{
             color: 'var(--coffee-dark)',
             position: 'relative'
           }}>
-            Welcome to{' '}
-            <span style={{ 
+            Your Vision.{' '}
+            <span style={{
               position: 'relative',
               display: 'inline-block',
               background: 'linear-gradient(135deg, var(--coffee-dark) 0%, var(--orange-accent) 100%)',
@@ -137,7 +133,7 @@ const HeroSection = () => {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
             }}>
-              CaféCanvas
+              Our Canvas.
               <div style={{
                 position: 'absolute',
                 bottom: '-10px',
@@ -151,52 +147,52 @@ const HeroSection = () => {
             </span>
           </h1>
         </div>
-        
-        {/* Tagline with Animation */}
+
+        {/* Tagline */}
         <div className={`${isVisible ? 'fade-in-up delay-1' : ''}`}>
-          <p className="body-large mb-4" style={{ 
-            maxWidth: '700px', 
+          <p className="body-large mb-4" style={{
+            maxWidth: '700px',
             margin: '0 auto 2rem',
             fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
             fontWeight: '500',
             color: 'var(--text-secondary)'
           }}>
-            Smart QR-based Ordering Websites for Cafés & Restaurants
+            We build digital experiences that transform businesses across <strong>Healthcare, Retail, Real Estate, Education</strong>, and beyond.
           </p>
         </div>
 
-        {/* Interactive Description */}
+        {/* Description */}
         <div className={`${isVisible ? 'fade-in-up delay-2' : ''}`}>
-          <p className="body-medium mb-5" style={{ 
-            maxWidth: '800px', 
-            margin: '0 auto 3rem', 
+          <p className="body-medium mb-5" style={{
+            maxWidth: '800px',
+            margin: '0 auto 3rem',
             color: 'var(--text-muted)',
             fontSize: '1.1rem',
             lineHeight: '1.8'
           }}>
-            We help cafés and restaurants create <strong style={{ color: 'var(--orange-accent)' }}>modern, efficient digital ordering experiences</strong> 
-            that boost sales and improve customer satisfaction. From QR menu systems to complete 
-            digital makeovers, we've got your business covered.
+            From <strong style={{ color: 'var(--orange-accent)' }}>clinic websites</strong> to <strong style={{ color: 'var(--orange-accent)' }}>e-commerce platforms</strong>,
+            from <strong style={{ color: 'var(--orange-accent)' }}>ERP systems</strong> to <strong style={{ color: 'var(--orange-accent)' }}>brand identities</strong> —
+            CafeCanvas is the creative partner that brings your business into the digital age.
           </p>
         </div>
-        
-        {/* Creative CTA Section */}
+
+        {/* CTA Section */}
         <div className={`${isVisible ? 'fade-in-up delay-3' : ''}`} style={{ marginBottom: '4rem' }}>
           <div className="hero-cta-container">
-            <button 
+            <button
               className="btn-primary creative-cta-primary"
               onClick={scrollToContact}
             >
-              <span>Get Started Today</span>
+              <span>Start Your Project</span>
               <ArrowRight size={20} style={{ transition: 'transform 0.3s ease' }} />
             </button>
-            
-            <button 
+
+            <button
               className="btn-secondary creative-cta-secondary"
-              onClick={scrollToServices}
+              onClick={scrollToIndustries}
             >
               <Smartphone size={18} />
-              <span>View Our Work</span>
+              <span>Explore Industries</span>
             </button>
           </div>
         </div>
@@ -205,8 +201,8 @@ const HeroSection = () => {
         <div className={`${isVisible ? 'fade-in-up delay-4' : ''}`}>
           <div className="hero-stats-grid">
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="stat-item"
                 style={{
                   textAlign: 'center',
@@ -230,18 +226,18 @@ const HeroSection = () => {
                   background: 'var(--orange-accent)',
                   color: 'white',
                   marginBottom: '1rem',
-                  boxShadow: '0 4px 20px rgba(255, 127, 80, 0.3)'
+                  boxShadow: '0 4px 20px rgba(14, 165, 233, 0.3)'
                 }}>
                   {stat.icon}
                 </div>
-                <div className="heading-2" style={{ 
-                  color: 'var(--coffee-dark)', 
+                <div className="heading-2" style={{
+                  color: 'var(--coffee-dark)',
                   marginBottom: '0.5rem',
                   fontWeight: '700'
                 }}>
                   {stat.number}
                 </div>
-                <div className="body-small" style={{ 
+                <div className="body-small" style={{
                   color: 'var(--text-muted)',
                   fontWeight: '500'
                 }}>
@@ -279,11 +275,6 @@ const HeroSection = () => {
         @keyframes slide-in-down {
           0% { opacity: 0; transform: translateY(-30px); }
           100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
         }
 
         .creative-cta-primary:hover .lucide-arrow-right {

@@ -19,17 +19,17 @@ const Footer = () => {
       <div className="footer-content">
         <div className="mb-4">
           <h3 className="heading-2 mb-2" style={{ color: 'var(--cream)' }}>
-            CaféCanvas
+            CafeCanvas Solutions
           </h3>
           <p className="body-medium" style={{ maxWidth: '400px', margin: '0 auto' }}>
-            Transforming cafés and restaurants with smart digital solutions. 
-            From QR ordering to complete online presence - we make it happen.
+            Empowering businesses of all sizes with cutting-edge digital solutions.
+            From websites to custom software - we build the future of your operations.
           </p>
         </div>
-        
+
         <div className="footer-links">
-          <a 
-            href="#home" 
+          <a
+            href="#home"
             className="footer-link"
             onClick={(e) => {
               e.preventDefault();
@@ -38,8 +38,8 @@ const Footer = () => {
           >
             Home
           </a>
-          <a 
-            href="#services" 
+          <a
+            href="#services"
             className="footer-link"
             onClick={(e) => {
               e.preventDefault();
@@ -48,8 +48,8 @@ const Footer = () => {
           >
             Services
           </a>
-          <a 
-            href="#pricing" 
+          <a
+            href="#pricing"
             className="footer-link"
             onClick={(e) => {
               e.preventDefault();
@@ -58,8 +58,8 @@ const Footer = () => {
           >
             Pricing
           </a>
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             className="footer-link"
             onClick={(e) => {
               e.preventDefault();
@@ -68,8 +68,8 @@ const Footer = () => {
           >
             About
           </a>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="footer-link"
             onClick={(e) => {
               e.preventDefault();
@@ -79,10 +79,10 @@ const Footer = () => {
             Contact
           </a>
         </div>
-        
+
         <div className="social-icons">
-          <a 
-            href="https://www.instagram.com/cafe._canvas/" 
+          <a
+            href="https://www.instagram.com/cafe._canvas/"
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -90,8 +90,8 @@ const Footer = () => {
           >
             <Instagram size={20} />
           </a>
-          <a 
-            href="https://www.linkedin.com/in/cafecanvas0/" 
+          <a
+            href="https://www.linkedin.com/in/cafecanvas0/"
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -100,14 +100,14 @@ const Footer = () => {
             <Linkedin size={20} />
           </a>
         </div>
-        
+
         <div style={{
           borderTop: '1px solid rgba(255, 255, 255, 0.1)',
           paddingTop: '2rem',
           marginTop: '2rem'
         }}>
           <p className="body-small" style={{ color: 'var(--cream)', opacity: 0.8 }}>
-            © 2024 CaféCanvas. All rights reserved. | Designed & Developed with ❤️ for the hospitality industry
+            © 2026 CafeCanvas Solutions. All rights reserved. | Designed & Developed with ❤️ for your business growth
           </p>
         </div>
       </div>

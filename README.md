@@ -1,68 +1,93 @@
-# CafeCanvas Frontend
+# CafeCanvas - Digital Solutions Agency
 
-This project has been migrated from Create React App to Vite for faster development and build times.
+A modern, full-stack digital agency website built with React and Vite. CafeCanvas serves businesses across multiple industries with web development, branding, marketing, and custom software solutions.
 
-## Available Scripts
+## 🚀 Live Demo
+Visit: [cafecanvas.vercel.app](https://cafecanvas.vercel.app)
 
-In the project directory, you can run:
+## 🎯 Industries We Serve
 
-### `npm run dev`
+- **Healthcare & Clinics** – Patient portals, appointment booking, medical websites
+- **Retail & E-commerce** – Online stores, inventory management
+- **Real Estate** – Property listings, virtual tours
+- **Education & Training** – LMS platforms, school websites
+- **Professional Services** – Portfolios for lawyers, consultants, freelancers
+- **Restaurants & Cafés** – QR ordering, digital menus, social media (dedicated page at `/restaurants`)
+- **Logistics & Distribution** – Fleet tracking, warehouse management
+- **Manufacturing** – ERP systems, supply chain dashboards
 
-Runs the app in the development mode using Vite.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📁 Project Structure
 
-The page will reload when you make changes with lightning-fast Hot Module Replacement (HMR).\
-You may also see any lint errors in the console.
+```
+d:\CafeCanvas\
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── HeroSection.jsx
+│   │   ├── IndustriesSection.jsx
+│   │   ├── ServicesSection.jsx
+│   │   ├── CaseStudiesSection.jsx
+│   │   ├── AboutSection.jsx
+│   │   ├── PricingSection.jsx
+│   │   ├── ContactSection.jsx
+│   │   ├── Navbar.jsx
+│   │   └── Footer.jsx
+│   ├── pages/
+│   │   └── RestaurantHome.jsx  # Dedicated restaurant solutions page
+│   ├── mock/
+│   │   └── mockData.js         # Mock data for services, pricing, etc.
+│   ├── App.js                  # Main app with React Router
+│   ├── App.css                 # Global styles
+│   └── index.js                # Entry point
+├── public/                     # Static assets
+├── index.html                  # HTML template
+├── vite.config.js              # Vite configuration
+├── tailwind.config.js          # Tailwind CSS configuration
+└── package.json                # Dependencies and scripts
+```
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder using Vite.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**: React 19, React Router v7
+- **Styling**: Tailwind CSS, Custom CSS Variables
+- **Build Tool**: Vite
+- **Icons**: Lucide React
+- **Analytics**: Vercel Analytics
+- **Deployment**: Vercel
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏃 Getting Started
 
-### `npm run preview`
+```bash
+# Install dependencies
+npm install
 
-Serves the production build locally for testing purposes.\
-This is useful for testing the production build before deployment.
+# Start development server
+npm run dev
 
-### `npm run eject`
+# Build for production
+npm run build
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Preview production build
+npm run preview
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📄 Pages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Route | Description |
+|-------|-------------|
+| `/` | Main homepage - Industries, Services, Case Studies |
+| `/restaurants` | Dedicated landing page for Restaurant & Café solutions |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎨 Case Studies
 
-## Learn More
+1. **BMS IT Solutions** – Full-stack digital transformation for an IT consultancy
+2. **Dr. Ajay Agrawal Clinic** – Patient-first medical website with booking system
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📞 Contact
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Email**: contact@cafecanvas.com
+- **Instagram**: [@cafe._canvas](https://www.instagram.com/cafe._canvas/)
+- **LinkedIn**: [cafecanvas0](https://www.linkedin.com/in/cafecanvas0/)
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2026 CafeCanvas Solutions. All rights reserved.

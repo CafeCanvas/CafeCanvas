@@ -35,21 +35,30 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-content">
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           className="logo"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection('home');
           }}
         >
-          CaféCanvas
+          CafeCanvas
         </a>
-        
+
         <ul className="nav-links">
           <li>
-            <a 
-              href="#home" 
+            <a
+              href="/restaurants"
+              className="nav-link"
+              style={{ color: 'var(--orange-accent)' }}
+            >
+              Restaurant Solutions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#home"
               className="nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -60,8 +69,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#services" 
+            <a
+              href="#services"
               className="nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -72,8 +81,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#pricing" 
+            <a
+              href="#pricing"
               className="nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -84,8 +93,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -96,8 +105,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -110,7 +119,7 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile menu button */}
-        <button 
+        <button
           className="mobile-menu-button"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
@@ -120,7 +129,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu overlay */}
-      <div 
+      <div
         className={`mobile-nav-overlay ${isMobileMenuOpen ? 'show' : ''}`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
@@ -128,8 +137,8 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={`mobile-nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-header">
-          <span className="logo">CaféCanvas</span>
-          <button 
+          <span className="logo">CafeCanvas</span>
+          <button
             className="mobile-close-button"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close mobile menu"
@@ -137,11 +146,16 @@ const Navbar = () => {
             <X size={24} />
           </button>
         </div>
-        
+
         <ul className="mobile-nav-links">
           <li>
-            <a 
-              href="#home" 
+            <a href="/restaurants" className="mobile-nav-link text-orange-500">
+              Restaurant Solutions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#home"
               className="mobile-nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -152,8 +166,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#services" 
+            <a
+              href="#services"
               className="mobile-nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -164,8 +178,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#pricing" 
+            <a
+              href="#pricing"
               className="mobile-nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -176,8 +190,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="mobile-nav-link"
               onClick={(e) => {
                 e.preventDefault();
@@ -188,8 +202,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="mobile-nav-link"
               onClick={(e) => {
                 e.preventDefault();

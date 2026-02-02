@@ -1,30 +1,45 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
-import CreativeShowcase from "./components/CreativeShowcase";
+import IndustriesSection from "./components/IndustriesSection";
 import ServicesSection from "./components/ServicesSection";
+import CaseStudiesSection from "./components/CaseStudiesSection";
 import InteractiveStats from "./components/InteractiveStats";
 import PricingSection from "./components/PricingSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import RestaurantHome from "./pages/RestaurantHome";
+
+const Home = () => (
+  <>
+    <HeroSection />
+    <IndustriesSection />
+    <ServicesSection />
+    <CaseStudiesSection />
+    <InteractiveStats />
+    <PricingSection />
+    <AboutSection />
+    <ContactSection />
+  </>
+);
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <HeroSection />
-      <CreativeShowcase />
-      <ServicesSection />
-      <InteractiveStats />
-      <PricingSection />
-      <AboutSection />
-      <ContactSection />
-      <Footer />
-      <Analytics />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/restaurants" element={<RestaurantHome />} />
+        </Routes>
+        <Footer />
+        <Analytics />
+      </div>
+    </Router>
   );
 }
 
