@@ -18,7 +18,7 @@ const InteractiveStats = () => {
     {
       icon: <Coffee size={28} />,
       number: 24,
-      suffix: '/7', 
+      suffix: '/7',
       label: 'Support Available',
       color: '#4ECDC4',
       description: 'Always here when needed'
@@ -84,7 +84,7 @@ const InteractiveStats = () => {
     let start = 0;
     const duration = 2000;
     const increment = target / (duration / 50);
-    
+
     const timer = setInterval(() => {
       start += increment;
       if (start >= target) {
@@ -99,12 +99,19 @@ const InteractiveStats = () => {
   // Testimonials removed as requested
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      style={{ 
-        background: 'linear-gradient(135deg, var(--coffee-dark) 0%, #2a1810 100%)',
+      style={{
+        background: 'rgba(62, 33, 19, 0.92)', /* Deep Coffee Glass */
+        backdropFilter: 'blur(16px)',
+        '-webkit-backdrop-filter': 'blur(16px)',
+        border: '1px solid rgba(255, 255, 255, 0.15)',
+        boxShadow: '0 20px 40px rgba(62, 33, 19, 0.2)',
+        borderRadius: '2rem',
         color: 'white',
         padding: '6rem 1rem',
+        margin: '4rem auto',
+        maxWidth: 'calc(100% - 2rem)',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -117,9 +124,9 @@ const InteractiveStats = () => {
         right: 0,
         bottom: 0,
         backgroundImage: `
-          radial-gradient(circle at 20% 20%, rgba(255, 127, 80, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 80%, rgba(245, 245, 220, 0.05) 0%, transparent 50%),
-          radial-gradient(circle at 50% 50%, rgba(255, 127, 80, 0.05) 0%, transparent 50%)
+          radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(255, 246, 236, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)
         `,
         animation: 'pulse-bg 8s ease-in-out infinite'
       }} />
@@ -130,8 +137,8 @@ const InteractiveStats = () => {
           <h2 className={`heading-1 mb-3 ${isVisible ? 'fade-in-up' : ''}`} style={{ color: 'white' }}>
             Our Promise to You
           </h2>
-          <p className={`body-large ${isVisible ? 'fade-in-up delay-1' : ''}`} style={{ 
-            maxWidth: '600px', 
+          <p className={`body-large ${isVisible ? 'fade-in-up delay-1' : ''}`} style={{
+            maxWidth: '600px',
             margin: '0 auto',
             color: 'rgba(255, 255, 255, 0.8)'
           }}>
@@ -178,7 +185,7 @@ const InteractiveStats = () => {
                   background: stat.color,
                   borderRadius: '2rem 2rem 0 0'
                 }} />
-                
+
                 <div style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -193,25 +200,25 @@ const InteractiveStats = () => {
                 }}>
                   {stat.icon}
                 </div>
-                
-                <div className="heading-1" style={{ 
-                  color: 'white', 
+
+                <div className="heading-1" style={{
+                  color: 'white',
                   marginBottom: '0.5rem',
                   fontSize: 'clamp(2rem, 4vw, 3rem)',
                   fontWeight: '700'
                 }}>
                   {animatedStats[`stat-${index}`] || 0}{stat.suffix}
                 </div>
-                
-                <div className="heading-3" style={{ 
-                  color: 'white', 
+
+                <div className="heading-3" style={{
+                  color: 'white',
                   marginBottom: '0.75rem',
                   fontWeight: '600'
                 }}>
                   {stat.label}
                 </div>
-                
-                <p className="body-small" style={{ 
+
+                <p className="body-small" style={{
                   color: 'rgba(255, 255, 255, 0.7)',
                   fontSize: '0.9rem'
                 }}>

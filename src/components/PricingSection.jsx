@@ -64,11 +64,13 @@ const PricingSection = () => {
       <div className="text-center mt-5 fade-in-up delay-3">
         <div style={{
           background: 'var(--bg-card)',
-          borderRadius: '1rem',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderRadius: '1.5rem',
           padding: '3rem 2rem',
           maxWidth: '800px',
           margin: '0 auto',
-          boxShadow: '0 8px 30px rgba(14, 165, 233, 0.1)',
+          boxShadow: '0 8px 32px rgba(249, 115, 22, 0.15)',
           border: '2px solid var(--orange-accent)'
         }}>
           <h3 className="heading-2 mb-3 text-coffee">Ready to Transform Your Business?</h3>

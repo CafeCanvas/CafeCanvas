@@ -92,7 +92,7 @@ const HeroSection = () => {
           width: '200px',
           height: '200px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%)',
           animation: 'pulse-slow 4s ease-in-out infinite',
           transform: `translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`
         }} />
@@ -103,7 +103,7 @@ const HeroSection = () => {
           width: '150px',
           height: '150px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(110, 63, 40, 0.08) 0%, transparent 70%)',
           animation: 'pulse-slow 5s ease-in-out infinite reverse',
           transform: `translate(${mousePosition.x * 0.04}px, ${mousePosition.y * 0.04}px)`
         }} />
@@ -226,7 +226,7 @@ const HeroSection = () => {
                   background: 'var(--orange-accent)',
                   color: 'white',
                   marginBottom: '1rem',
-                  boxShadow: '0 4px 20px rgba(14, 165, 233, 0.3)'
+                  boxShadow: '0 8px 24px rgba(249, 115, 22, 0.25)'
                 }}>
                   {stat.icon}
                 </div>

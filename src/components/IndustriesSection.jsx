@@ -72,7 +72,7 @@ const industries = [
 
 const IndustriesSection = () => {
     return (
-        <section id="industries" className="section-container py-20" style={{ background: 'var(--bg-section)' }}>
+        <section id="industries" className="section-container py-20">
             <div className="text-center mb-12">
                 <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-4">
                     Who We Serve
@@ -87,9 +87,13 @@ const IndustriesSection = () => {
                 {industries.map((industry) => (
                     <div
                         key={industry.id}
-                        className="industry-card p-6 rounded-2xl bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                        className="industry-card p-6 rounded-2xl shadow-lg border transition-all duration-300 group cursor-pointer"
                         style={{
                             '--accent-color': industry.color,
+                            background: 'var(--bg-card)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            borderColor: 'var(--border-light)'
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.borderColor = industry.color;

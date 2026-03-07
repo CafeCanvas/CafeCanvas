@@ -45,11 +45,14 @@ const AboutSection = () => {
         <div className="text-center mt-5 fade-in-up delay-3">
           <div style={{
             background: 'var(--bg-card)',
-            borderRadius: '1rem',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid var(--border-light)',
+            borderRadius: '1.5rem',
             padding: '2rem',
             maxWidth: '600px',
             margin: '0 auto',
-            boxShadow: '0 4px 20px rgba(14, 165, 233, 0.1)'
+            boxShadow: '0 8px 32px rgba(249, 115, 22, 0.1)'
           }}>
             <h4 className="heading-3 mb-3 text-coffee">Why Choose CafeCanvas?</h4>
             <div className="features-grid">

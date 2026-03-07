@@ -29,6 +29,20 @@ const caseStudies = [
             'Mobile-optimized design'
         ],
         color: '#10B981'
+    },
+    {
+        id: 3,
+        client: 'Samatva Yoga',
+        industry: 'Wellness & Lifestyle',
+        tagline: 'A seamless, serene digital platform for class bookings and retreats.',
+        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop', // Yoga-themed image
+        results: [
+            'Dynamic scheduling & booking',
+            'Membership portal',
+            'Mobile-first responsive design',
+            'Tranquil brand aesthetic'
+        ],
+        color: '#F59E0B' // Warm amber color fitting for yoga
     }
 ];
 
@@ -39,17 +53,18 @@ const CaseStudiesSection = () => {
                 <span className="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold mb-4">
                     Our Work
                 </span>
-                <h2 className="heading-1 mb-4">Case Studies</h2>
+                <h2 className="heading-1 mb-4">Our Work</h2>
                 <p className="body-large" style={{ maxWidth: '700px', margin: '0 auto' }}>
-                    Real results for real clients. Here's how we've helped businesses like yours succeed.
+                    Beautiful, high-conversion websites tailored for top businesses. Explore the digital transformations we've crafted.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {caseStudies.map((study) => (
                     <div
                         key={study.id}
-                        className="case-study-card rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+                        className="case-study-card rounded-2xl overflow-hidden shadow-lg border transition-all duration-300"
+                        style={{ background: 'var(--bg-card)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderColor: 'var(--border-light)' }}
                     >
                         <div className="relative h-48 overflow-hidden">
                             <img

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,107 +16,80 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80; // Account for fixed navbar height
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-    // Close mobile menu when clicking a link
-    setIsMobileMenuOpen(false);
-  };
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-content">
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="logo"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('home');
-          }}
+          onClick={closeMobileMenu}
         >
           CafeCanvas
-        </a>
+        </Link>
 
         <ul className="nav-links">
           <li>
-            <a
-              href="/restaurants"
+            <Link
+              to="/restaurants"
               className="nav-link"
               style={{ color: 'var(--orange-accent)' }}
+              onClick={closeMobileMenu}
             >
               Restaurant Solutions
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('home');
-              }}
+              onClick={closeMobileMenu}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#services"
+            <Link
+              to="/services"
               className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('services');
-              }}
+              onClick={closeMobileMenu}
             >
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#pricing"
+            <Link
+              to="/pricing"
               className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('pricing');
-              }}
+              onClick={closeMobileMenu}
             >
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
+            <Link
+              to="/about"
               className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('about');
-              }}
+              onClick={closeMobileMenu}
             >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }}
+              onClick={closeMobileMenu}
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -131,16 +106,16 @@ const Navbar = () => {
       {/* Mobile menu overlay */}
       <div
         className={`mobile-nav-overlay ${isMobileMenuOpen ? 'show' : ''}`}
-        onClick={() => setIsMobileMenuOpen(false)}
+        onClick={closeMobileMenu}
       />
 
       {/* Mobile menu */}
       <div className={`mobile-nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-header">
-          <span className="logo">CafeCanvas</span>
+          <Link to="/" className="logo" onClick={closeMobileMenu}>CafeCanvas</Link>
           <button
             className="mobile-close-button"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={closeMobileMenu}
             aria-label="Close mobile menu"
           >
             <X size={24} />
@@ -149,69 +124,54 @@ const Navbar = () => {
 
         <ul className="mobile-nav-links">
           <li>
-            <a href="/restaurants" className="mobile-nav-link text-orange-500">
+            <Link to="/restaurants" className="mobile-nav-link text-orange-500" onClick={closeMobileMenu}>
               Restaurant Solutions
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('home');
-              }}
+              onClick={closeMobileMenu}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#services"
+            <Link
+              to="/services"
               className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('services');
-              }}
+              onClick={closeMobileMenu}
             >
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#pricing"
+            <Link
+              to="/pricing"
               className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('pricing');
-              }}
+              onClick={closeMobileMenu}
             >
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
+            <Link
+              to="/about"
               className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('about');
-              }}
+              onClick={closeMobileMenu}
             >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="mobile-nav-link"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }}
+              onClick={closeMobileMenu}
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

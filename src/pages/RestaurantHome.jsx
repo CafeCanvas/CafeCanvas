@@ -81,12 +81,9 @@ const RestaurantHome = () => {
     return (
         <div className="restaurant-page">
             {/* Hero Section */}
-            <section className="hero-section min-h-[90vh] flex items-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)' }}>
+            <section className="hero-section min-h-[90vh] flex items-center relative overflow-hidden" style={{ background: 'transparent' }}>
                 <div className="section-container relative z-10">
                     <div className="text-center max-w-4xl mx-auto">
-                        <Link to="/" className="inline-block mb-4 text-sm text-orange-600 hover:underline">
-                            ← Back to CafeCanvas Home
-                        </Link>
                         <span className="inline-block py-1.5 px-4 rounded-full bg-orange-100 text-orange-700 text-sm font-semibold mb-6">
                             ☕ Specially for Cafés & Restaurants
                         </span>
@@ -130,8 +127,8 @@ const RestaurantHome = () => {
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="service-card p-8 rounded-2xl bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-                            style={{ '--accent-color': feature.color }}
+                            className="service-card p-8 rounded-2xl shadow-lg border transition-all duration-300"
+                            style={{ '--accent-color': feature.color, background: 'var(--bg-card)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderColor: 'var(--border-light)' }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.borderColor = feature.color;
                                 e.currentTarget.style.transform = 'translateY(-8px)';
@@ -152,14 +149,14 @@ const RestaurantHome = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="py-20" style={{ background: '#FFFBEB' }}>
+            <section className="py-20" style={{ background: 'transparent' }}>
                 <div className="section-container">
                     <div className="text-center mb-12">
                         <h2 className="heading-1 mb-4">What Our Clients Say</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
+                            <div key={index} className="p-8 rounded-2xl shadow-lg border" style={{ background: 'var(--bg-card)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderColor: 'var(--border-light)' }}>
                                 <div className="flex gap-1 mb-4">
                                     {[...Array(testimonial.rating)].map((_, i) => (
                                         <Star key={i} size={20} fill="#F59E0B" color="#F59E0B" />
@@ -178,7 +175,7 @@ const RestaurantHome = () => {
 
             {/* CTA Section */}
             <section className="py-20 section-container">
-                <div className="text-center max-w-3xl mx-auto p-12 rounded-3xl" style={{ background: 'linear-gradient(135deg, #FF7F50 0%, #F59E0B 100%)' }}>
+                <div className="text-center max-w-3xl mx-auto p-12 rounded-3xl" style={{ background: 'rgba(234, 88, 12, 0.9)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255, 255, 255, 0.2)', boxShadow: '0 20px 40px rgba(234, 88, 12, 0.2)' }}>
                     <h2 className="heading-1 mb-4 text-white">Ready to Digitize Your Restaurant?</h2>
                     <p className="body-large text-white/90 mb-8">
                         Join hundreds of cafés and restaurants already using CafeCanvas to streamline operations and grow their business.
