@@ -64,16 +64,19 @@ const CaseStudiesSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 {caseStudies.map((study) => (
-                    <div
+                    <a
+                        href={study.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         key={study.id}
-                        className="case-study-card rounded-2xl overflow-hidden shadow-lg border transition-all duration-300 w-full max-w-[340px]"
+                        className="case-study-card rounded-2xl overflow-hidden shadow-lg border transition-all duration-300 w-full max-w-[340px] block hover:shadow-xl hover:-translate-y-1 group"
                         style={{ background: 'var(--bg-card)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderColor: 'var(--border-light)' }}
                     >
                         <div className="relative h-40 overflow-hidden">
                             <img
                                 src={study.image}
                                 alt={study.client}
-                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div
                                 className="absolute top-4 left-4 py-1 px-3 rounded-full text-white text-xs font-semibold shadow-sm"
@@ -92,17 +95,14 @@ const CaseStudiesSection = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <a
-                                href={study.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 font-semibold text-sm hover:opacity-80 transition-opacity"
+                            <span
+                                className="inline-flex items-center gap-1.5 font-semibold text-sm group-hover:opacity-80 transition-opacity"
                                 style={{ color: study.color }}
                             >
-                                View client Website <ArrowRight size={14} />
-                            </a>
+                                View client Website <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 ))}
             </div>
         </section>
