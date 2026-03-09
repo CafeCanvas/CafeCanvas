@@ -44,8 +44,8 @@ const HeroSection = () => {
   };
 
   const stats = [
-    { icon: <Users size={24} />, number: "50+", label: "Clients Served" },
-    { icon: <Building2 size={24} />, number: "8+", label: "Industries" },
+    { icon: <Users size={24} />, number: "25+", label: "Clients Served" },
+    { icon: <Building2 size={24} />, number: "10+", label: "Industries" },
     { icon: <TrendingUp size={24} />, number: "100%", label: "Client Satisfaction" }
   ];
 
