@@ -39,8 +39,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/restaurants"
-              className="nav-link"
-              style={{ color: 'var(--orange-accent)' }}
+              className="nav-link special-nav-link"
               onClick={closeMobileMenu}
             >
               Restaurant Solutions
@@ -85,10 +84,10 @@ const Navbar = () => {
           <li>
             <Link
               to="/contact"
-              className="nav-link"
+              className="nav-cta-button"
               onClick={closeMobileMenu}
             >
-              Contact
+              Let's Talk
             </Link>
           </li>
         </ul>
