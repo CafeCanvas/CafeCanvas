@@ -17,6 +17,7 @@ import ServicesPage from "./pages/ServicesPage";
 import PricingPage from "./pages/PricingPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import GlobalBackground from "./components/GlobalBackground";
 
 const Home = () => (
   <>
@@ -35,6 +36,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <GlobalBackground />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
