@@ -1,112 +1,100 @@
 import React from 'react';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { useReveal } from '../hooks/useReveal';
+import { ArrowUpRight } from 'lucide-react';
 
-const caseStudies = [
-    {
-        id: 1,
-        client: 'BMS IT Solutions',
-        industry: 'Professional Services / IT',
-        tagline: 'Full-stack digital transformation for a growing IT consultancy.',
-        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop',
-        results: [
-            'Custom ERP dashboard',
-            'Multi-page responsive website',
-            'SEO & Lead Generation',
-            '40% increase in client inquiries'
-        ],
-        color: '#6366F1',
-        link: 'https://bmsitsolutionsindia.com'
-    },
-    {
-        id: 2,
-        client: 'Dr. Ajay Agrawal Clinic',
-        industry: 'Healthcare',
-        tagline: 'A patient-first medical website with modern booking and trust signals.',
-        image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop',
-        results: [
-            'Appointment booking system',
-            'Service & specialty pages',
-            'Schema markup for Google Rich Results',
-            'Mobile-optimized design'
-        ],
-        color: '#10B981',
-        link: 'https://dr-ajay-agrawal.netlify.app/'
-    },
-    {
-        id: 3,
-        client: 'Samatva Yoga',
-        industry: 'Wellness & Lifestyle',
-        tagline: 'A seamless, serene digital platform for class bookings and retreats.',
-        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop', // Yoga-themed image
-        results: [
-            'Dynamic scheduling & booking',
-            'Membership portal',
-            'Mobile-first responsive design',
-            'Tranquil brand aesthetic'
-        ],
-        color: '#F59E0B', // Warm amber color fitting for yoga
-        link: 'https://samatvayoga.com.my/'
-    }
+const STUDIES = [
+  {
+    client: 'BMS IT Solutions',
+    type: 'Professional Services',
+    desc: 'Full-stack digital transformation for a growing IT consultancy.',
+    img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
+    color: '#1A2421',
+    link: 'https://bmsitsolutionsindia.com'
+  },
+  {
+    client: 'Dr. Ajay Agrawal Clinic',
+    type: 'Healthcare',
+    desc: 'A patient-first medical website with modern booking and trust signals.',
+    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
+    color: '#2A1F1D',
+    link: 'https://dr-ajay-agrawal.netlify.app/'
+  },
+  {
+    client: 'Samatva Yoga',
+    type: 'Wellness & Lifestyle',
+    desc: 'A seamless, serene digital platform for class bookings and retreats.',
+    img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80',
+    color: '#1D242A',
+    link: 'https://samatvayoga.com.my/'
+  }
 ];
 
 const CaseStudiesSection = () => {
-    return (
-        <section id="case-studies" className="section-container py-20">
-            <div className="text-center mb-12">
-                <span className="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold mb-4">
-                    Case Studies
-                </span>
-                <h2 className="heading-1 mb-4">Our recent clients</h2>
-                <p className="body-large text-gray-700" style={{ maxWidth: '700px', margin: '0 auto' }}>
-                    Beautiful, high-conversion websites tailored for top businesses. Explore a selection of recent digital transformations we've crafted, alongside numerous other scaling brands.
-                </p>
-            </div>
+  useReveal();
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-                {caseStudies.map((study) => (
-                    <a
-                        href={study.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={study.id}
-                        className="case-study-card rounded-2xl overflow-hidden shadow-lg border transition-all duration-300 w-full max-w-[340px] block hover:shadow-xl hover:-translate-y-1 group"
-                        style={{ background: 'var(--bg-card)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderColor: 'var(--border-light)' }}
-                    >
-                        <div className="relative h-40 overflow-hidden">
-                            <img
-                                src={study.image}
-                                alt={study.client}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div
-                                className="absolute top-4 left-4 py-1 px-3 rounded-full text-white text-xs font-semibold shadow-sm"
-                                style={{ background: study.color }}
-                            >
-                                {study.industry}
-                            </div>
-                        </div>
-                        <div className="p-5">
-                            <h3 className="heading-3 mb-2" style={{ color: 'var(--coffee-dark)' }}>{study.client}</h3>
-                            <p className="text-sm text-gray-600 mb-4 leading-relaxed">{study.tagline}</p>
-                            <ul className="space-y-1.5 mb-5">
-                                {study.results.map((result, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-xs text-gray-700">
-                                        <span style={{ color: study.color, marginTop: '2px' }}>✓</span> {result}
-                                    </li>
-                                ))}
-                            </ul>
-                            <span
-                                className="inline-flex items-center gap-1.5 font-semibold text-sm group-hover:opacity-80 transition-opacity"
-                                style={{ color: study.color }}
-                            >
-                                View client Website <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                            </span>
-                        </div>
-                    </a>
-                ))}
+  return (
+    <section className="section" id="work">
+      <div className="container">
+        
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '8vw' }}>
+          <div>
+            <div className="label" data-reveal="fade-up">Selected Works</div>
+            <h2 className="display-md delay-1" data-reveal="fade-up" style={{ marginTop: '1rem' }}>
+              Building <span style={{ color: 'var(--accent)' }}>Digital</span> Excellence.
+            </h2>
+          </div>
+          <p className="body-lg delay-2" data-reveal="fade-up" style={{ maxWidth: '400px', textAlign: 'right' }}>
+            A curated selection of our most impactful technical projects and visual identities.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4vw', marginTop: '6vw' }}>
+          {STUDIES.map((study, i) => (
+            <div 
+              key={i} 
+              data-reveal="fade-up"
+              style={{ 
+                position: 'sticky', 
+                top: `calc(120px + ${i * 40}px)`, 
+                background: study.color, 
+                borderRadius: '32px', 
+                padding: '4vw', 
+                display: 'grid', 
+                gridTemplateColumns: '1fr 1.2fr', 
+                gap: '4vw', 
+                alignItems: 'center',
+                boxShadow: '0 -20px 40px rgba(0,0,0,0.6)',
+                zIndex: i,
+                minHeight: '60vh',
+                border: '1px solid rgba(255,255,255,0.05)'
+              }}
+            >
+              
+              {/* Text Block */}
+              <div>
+                <div className="label" style={{ marginBottom: '1.5rem', color: 'var(--fg-muted)' }}>0{i+1} — {study.type}</div>
+                <h3 className="display-md" style={{ marginBottom: '1.5rem', fontSize: 'clamp(2rem, 3vw, 3rem)' }}>{study.client}</h3>
+                <p className="body-lg" style={{ marginBottom: '3rem', maxWidth: '400px' }}>{study.desc}</p>
+                <a href={study.link} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '1rem 2rem' }}>
+                  <span>Visit Website</span>
+                  <ArrowUpRight size={18} />
+                </a>
+              </div>
+
+              {/* Image Block */}
+              <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+                <div style={{ borderRadius: '24px', aspectRatio: '4/3', width: '100%', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+                  <img src={study.img} alt={study.client} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                </div>
+              </div>
+
             </div>
-        </section>
-    );
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default CaseStudiesSection;

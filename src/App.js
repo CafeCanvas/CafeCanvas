@@ -17,6 +17,8 @@ import ServicesPage from "./pages/ServicesPage";
 import PricingPage from "./pages/PricingPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import GlobalBackground from "./components/GlobalBackground";
+import LoadingCurtain from "./components/LoadingCurtain";
 
 const Home = () => (
   <>
@@ -35,6 +37,8 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <LoadingCurtain />
+        <GlobalBackground />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

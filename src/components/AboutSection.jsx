@@ -1,75 +1,32 @@
 import React from 'react';
-import CloudinaryVideo from './CloudinaryVideo';
+import { useReveal } from '../hooks/useReveal';
 
 const AboutSection = () => {
+  useReveal();
+
   return (
-    <section id="about" className="bg-section">
-      <div className="section-container">
-        <div className="text-center mb-5">
-          <h2 className="heading-1 mb-3 fade-in-up">About CafeCanvas</h2>
-          <p className="body-large fade-in-up delay-1" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            Empowering businesses to thrive in the digital age
-          </p>
-        </div>
-
-        <div className="about-grid">
-          <div className="fade-in-up delay-1">
-            <h3 className="heading-2 mb-4 text-coffee">Our Mission</h3>
-            <p className="body-medium mb-4">
-              At CafeCanvas, we believe that every business deserves a strong digital presence.
-              Our mission is to bridge the gap between traditional operations and modern technology,
-              helping companies compete in today's digital marketplace.
+    <section className="section" id="about">
+      <div className="container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8vw', alignItems: 'center' }}>
+          
+          <div data-reveal="fade-up">
+            <div className="label" style={{ marginBottom: '1.5rem' }}>Our Philosophy</div>
+            <h2 className="display-md" style={{ marginBottom: '2rem' }}>We don't build generic.</h2>
+            <p className="body-xl" style={{ marginBottom: '2rem' }}>
+              CafeCanvas is an independent digital studio dedicated to pushing the boundaries of web architecture and visual identity.
             </p>
-            <p className="body-medium mb-4">
-              We specialize in creating seamless custom software and websites that not only enhance the
-              customer experience but also streamline operations for business owners. From startups
-              to established enterprises, we tailor our solutions to fit your unique needs.
-            </p>
-            <p className="body-medium">
-              With our comprehensive approach combining web development, branding, and strategic
-              marketing, we ensure your business doesn't just survive but thrives in the digital landscape.
+            <p className="body-lg" style={{ color: 'var(--fg-muted)' }}>
+              We collaborate with ambitious founders and established enterprises to craft bespoke digital experiences. Our approach is entirely custom, relying on deep research, avant-garde design, and uncompromising engineering standards.
             </p>
           </div>
 
-          <div className="fade-in-up delay-2">
-            <div className="service-card" style={{ textAlign: 'center', padding: '2.5rem' }}>
-              <CloudinaryVideo />
-              <h4 className="heading-3 mb-2">Digital Innovation in Action</h4>
-              <p className="body-small">
-                See how our solutions transform business operations
-              </p>
+          <div data-reveal="clip-up" className="delay-2" style={{ aspectRatio: '3/4', background: 'var(--bg-elevated)', borderRadius: '24px', position: 'relative', overflow: 'hidden' }}>
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop" alt="Abstract aesthetic" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7, filter: 'grayscale(100%)' }} />
+            <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem' }}>
+              <div className="label" style={{ color: '#fff' }}>Est. 2020</div>
             </div>
           </div>
-        </div>
 
-        <div className="text-center mt-5 fade-in-up delay-3">
-          <div style={{
-            background: 'var(--bg-card)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            border: '1px solid var(--border-light)',
-            borderRadius: '1.5rem',
-            padding: '2rem',
-            maxWidth: '600px',
-            margin: '0 auto',
-            boxShadow: '0 8px 32px rgba(249, 115, 22, 0.1)'
-          }}>
-            <h4 className="heading-3 mb-3 text-coffee">Why Choose CafeCanvas?</h4>
-            <div className="features-grid">
-              <div>
-                <div className="text-orange" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🚀</div>
-                <p className="body-small"><strong>Fast Setup</strong><br />Launch in days, not months</p>
-              </div>
-              <div>
-                <div className="text-orange" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>💡</div>
-                <p className="body-small"><strong>Smart Solutions</strong><br />Technology that works for you</p>
-              </div>
-              <div>
-                <div className="text-orange" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🤝</div>
-                <p className="body-small"><strong>Ongoing Support</strong><br />We're here when you need us</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

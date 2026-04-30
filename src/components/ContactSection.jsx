@@ -1,295 +1,86 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { useReveal } from '../hooks/useReveal';
+import { ArrowUpRight } from 'lucide-react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    businessName: '',
-    requirements: ''
-  });
+  useReveal();
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState(null);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-    
+    setStatus('sending');
+
     try {
-      const formDataToSend = new FormData();
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'ea367075-b543-44ec-85ba-201932942b62';
-      formDataToSend.append('access_key', accessKey);
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('phone', formData.phone);
-      formDataToSend.append('business_name', formData.businessName);
-      formDataToSend.append('requirements', formData.requirements);
-      formDataToSend.append('subject', 'New Contact Form Submission from CafeCanvas');
-      
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formDataToSend
-      });
-      
+      const data = new FormData();
+      data.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'ea367075-b543-44ec-85ba-201932942b62');
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('message', formData.message);
+      data.append('subject', 'New Lead from CafeCanvas');
+
+      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       const result = await response.json();
-      
       if (result.success) {
-        setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          businessName: '',
-          requirements: ''
-        });
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error(result.message || 'Form submission failed');
+        setStatus('error');
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+    } catch {
+      setStatus('error');
     }
   };
 
   return (
-    <section id="contact" className="section-container">
-      <div className="text-center mb-5">
-        <h2 className="heading-1 mb-3 fade-in-up">Get In Touch</h2>
-        <p className="body-large fade-in-up delay-1" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          Ready to transform your café or restaurant? Let's discuss your project and create something amazing together.
-        </p>
-      </div>
-      
-      <div className="contact-grid">
-        {/* Contact Form */}
-        <div className="fade-in-up delay-1">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            {/* Web3Forms hidden fields */}
-            <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'ea367075-b543-44ec-85ba-201932942b62'} />
-            <input type="hidden" name="subject" value="New Contact Form Submission from CafeCanvas" />
-            <input type="hidden" name="from_name" value="CafeCanvas Contact Form" />
+    <section className="section" id="contact">
+      <div className="container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8vw' }}>
+          
+          <div>
+            <div className="label" data-reveal="fade-up">Let's Talk</div>
+            <h2 className="display-md delay-1" data-reveal="fade-up" style={{ marginTop: '1rem', marginBottom: '4rem' }}>
+              Have an idea? <br/><span style={{ color: 'var(--accent)' }}>Tell us about it.</span>
+            </h2>
             
-            {/* Honeypot Spam Protection */}
-            <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
-            
-            <h3 className="heading-3 mb-4 text-coffee">Send us a message</h3>
-            
-            {submitStatus === 'success' && (
-              <div style={{
-                background: '#d4edda',
-                color: '#155724',
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginBottom: '1.5rem',
-                border: '1px solid #c3e6cb'
-              }}>
-                Thank you! Your message has been sent successfully. We'll get back to you soon.
-              </div>
-            )}
-            
-            {submitStatus === 'error' && (
-              <div style={{
-                background: '#f8d7da',
-                color: '#721c24',
-                padding: '1rem',
-                borderRadius: '0.5rem',
-                marginBottom: '1.5rem',
-                border: '1px solid #f5c6cb'
-              }}>
-                Sorry, there was an error sending your message. Please try again.
-              </div>
-            )}
-            
-            <div className="form-group">
-              <label htmlFor="name" className="form-label">Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className="form-input"
-                required
-                placeholder="Your full name"
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="email" className="form-label">Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="form-input"
-                required
-                placeholder="your.email@example.com"
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="phone" className="form-label">Phone Number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="form-input"
-                required
-                placeholder="+91 87918 04428"
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="businessName" className="form-label">Business Name</label>
-              <input
-                type="text"
-                id="businessName"
-                name="businessName"
-                value={formData.businessName}
-                onChange={handleInputChange}
-                className="form-input"
-                placeholder="Your café or restaurant name"
-              />
-            </div>
-            
-            <div className="form-group">
-              <label htmlFor="requirements" className="form-label">What do you need help with? *</label>
-              <textarea
-                id="requirements"
-                name="requirements"
-                value={formData.requirements}
-                onChange={handleInputChange}
-                className="form-textarea"
-                required
-                placeholder="Tell us about your project, goals, and what services you're interested in..."
-              />
-            </div>
-            
-            <button 
-              type="submit" 
-              className="btn-primary" 
-              disabled={isSubmitting}
-              style={{ width: '100%' }}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        </div>
-        
-        {/* Contact Information */}
-        <div className="fade-in-up delay-2">
-          <div className="contact-form" style={{ height: 'fit-content' }}>
-            <h3 className="heading-3 mb-4 text-coffee">Contact Information</h3>
-            
-            <div className="mb-4">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '50%',
-                  background: 'var(--orange-accent)',
-                  color: 'white'
-                }}>
-                  <Phone size={18} />
-                </div>
-                <div>
-                  <p className="body-small text-muted">Phone</p>
-                  <p className="body-medium">
-                    <span style={{ color: '#8B4513', fontWeight: '500' }}>Rachit:</span> 
-                    <a href="tel:+918791804428" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '0.5rem' }}>+91 87918 04428</a>
-                  </p>
-                  <p className="body-medium">
-                    <span style={{ color: '#8B4513', fontWeight: '500' }}>Arman:</span> 
-                    <a href="tel:+919548784462" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '0.5rem' }}>+91 9548784462</a>
-                  </p>
-                </div>
-              </div>
+            <div data-reveal="fade-up" className="delay-2">
+              <div className="label" style={{ color: 'var(--fg-muted)', marginBottom: '0.5rem' }}>Drop us a line</div>
+              <a href="mailto:cafe.canvas0@gmail.com" className="display-md" style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}>cafe.canvas0@gmail.com</a>
               
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '50%',
-                  background: 'var(--orange-accent)',
-                  color: 'white'
-                }}>
-                  <Mail size={18} />
-                </div>
-                <div>
-                  <p className="body-small text-muted">Email</p>
-                  <p className="body-medium">cafe.canvas0@gmail.com</p>
-                </div>
+              <div style={{ marginTop: '4rem' }}>
+                <div className="label" style={{ color: 'var(--fg-muted)', marginBottom: '0.5rem' }}>Call Us</div>
+                <div className="body-lg" style={{ color: 'var(--fg)', marginBottom: '0.25rem' }}>+91 87918 04428</div>
+                <div className="body-lg" style={{ color: 'var(--fg)' }}>+91 95487 84462</div>
               </div>
-              
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '50%',
-                  background: 'var(--orange-accent)',
-                  color: 'white'
-                }}>
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <p className="body-small text-muted">Address</p>
-                  <p className="body-medium">Mathura 281001</p>
-                </div>
-              </div>
-            </div>
-            
-            <div style={{
-              background: 'var(--bg-section)',
-              borderRadius: '0.5rem',
-              padding: '1.5rem',
-              marginTop: '2rem'
-            }}>
-              <h4 className="heading-3 mb-2 text-coffee">Business Hours</h4>
-              <div className="body-small">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-            </div>
-            
-            <div style={{
-              background: 'var(--bg-section)',
-              borderRadius: '0.5rem',
-              padding: '1.5rem',
-              marginTop: '1rem'
-            }}>
-              <h4 className="heading-3 mb-2 text-coffee">Quick Response</h4>
-              <p className="body-small">
-                We typically respond to all inquiries within 24 hours. 
-                For urgent requests, please call us directly.
-              </p>
             </div>
           </div>
+
+          <div data-reveal="fade-up" className="delay-3">
+            {status === 'success' && <div style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #4ade80', marginBottom: '2rem' }}>Message received successfully. We will be in touch shortly.</div>}
+            {status === 'error' && <div style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.05)', borderLeft: '4px solid #ef4444', marginBottom: '2rem' }}>Something went wrong. Please try emailing us.</div>}
+            
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+              <div>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-input" placeholder="What's your name?" required />
+              </div>
+              <div>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-input" placeholder="What's your email?" required />
+              </div>
+              <div>
+                <input type="text" name="message" value={formData.message} onChange={handleChange} className="form-input" placeholder="Tell us about your project..." required />
+              </div>
+              
+              <div>
+                <button type="submit" className="btn-primary" disabled={status === 'sending'}>
+                  <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
+                  <ArrowUpRight size={20} />
+                </button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
     </section>
