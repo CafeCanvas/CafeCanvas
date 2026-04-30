@@ -1,178 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-content">
-        <Link
-          to="/"
-          className="logo"
-          onClick={closeMobileMenu}
-        >
-          CafeCanvas
-        </Link>
-
-        <ul className="nav-links">
-          <li>
-            <Link
-              to="/restaurants"
-              className="nav-link special-nav-link"
-              onClick={closeMobileMenu}
-            >
-              Restaurant Solutions
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              className="nav-link"
-              onClick={closeMobileMenu}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/services"
-              className="nav-link"
-              onClick={closeMobileMenu}
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/pricing"
-              className="nav-link"
-              onClick={closeMobileMenu}
-            >
-              Pricing
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className="nav-link"
-              onClick={closeMobileMenu}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="nav-cta-button"
-              onClick={closeMobileMenu}
-            >
-              Let's Talk
-            </Link>
-          </li>
-        </ul>
-
-        {/* Mobile menu button */}
-        <button
-          className="mobile-menu-button"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          <Menu size={24} />
-        </button>
-      </div>
-
-      {/* Mobile menu overlay */}
-      <div
-        className={`mobile-nav-overlay ${isMobileMenuOpen ? 'show' : ''}`}
-        onClick={closeMobileMenu}
-      />
-
-      {/* Mobile menu */}
-      <div className={`mobile-nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        <div className="mobile-nav-header">
-          <Link to="/" className="logo" onClick={closeMobileMenu}>CafeCanvas</Link>
-          <button
-            className="mobile-close-button"
-            onClick={closeMobileMenu}
-            aria-label="Close mobile menu"
-          >
-            <X size={24} />
-          </button>
+    <nav className="nav-bar">
+      <Link to="/" className="nav-logo">CAFECANVAS</Link>
+      <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '2rem', fontSize: '0.875rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#fff' }}>
+          <Link to="/services" style={{ transition: 'opacity 0.3s' }}>Services</Link>
+          <Link to="/about" style={{ transition: 'opacity 0.3s' }}>Agency</Link>
+          <a href="#work" style={{ transition: 'opacity 0.3s' }}>Work</a>
         </div>
-
-        <ul className="mobile-nav-links">
-          <li>
-            <Link to="/restaurants" className="mobile-nav-link text-orange-500" onClick={closeMobileMenu}>
-              Restaurant Solutions
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              className="mobile-nav-link"
-              onClick={closeMobileMenu}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/services"
-              className="mobile-nav-link"
-              onClick={closeMobileMenu}
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/pricing"
-              className="mobile-nav-link"
-              onClick={closeMobileMenu}
-            >
-              Pricing
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className="mobile-nav-link"
-              onClick={closeMobileMenu}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="mobile-nav-link"
-              onClick={closeMobileMenu}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
+        <Link to="/contact" className="label" style={{ color: '#fff', borderBottom: '1px solid #fff', paddingBottom: '4px' }}>
+          Start Project
+        </Link>
       </div>
     </nav>
   );
