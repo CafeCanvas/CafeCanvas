@@ -3,7 +3,7 @@
 A modern, full-stack digital agency website built with React and Vite. CafeCanvas serves businesses across multiple industries with web development, branding, marketing, and custom software solutions.
 
 ## 🚀 Live Demo
-Visit: [cafecanvas.vercel.app](https://cafecanvas.vercel.app)
+Visit: [cafecanvas.vercel.app](https://cafe-canvas.vercel.app)
 
 ## 🎯 Industries We Serve
 
